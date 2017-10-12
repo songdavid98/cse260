@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class NumberOccurences {
 
 	public static void main(String[] args) {
-		
+		System.out.println("Enter some integers. Enter 0 to stop:");
 		Scanner sc = new Scanner(System.in);
 		String s = "";
 		HashMap<String, Integer> counter = new HashMap<>();
