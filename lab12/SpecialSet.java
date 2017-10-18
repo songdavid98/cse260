@@ -3,11 +3,11 @@ import java.util.Comparator;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-class StringComparator implements Comparator<String> {
-	public int compare(String a, String b) {
-		return a.toUpperCase().compareTo(b.toUpperCase());
-	}
-}
+// class StringComparator implements Comparator<String> {
+// 	public int compare(String a, String b) {
+// 		return a.toUpperCase().compareTo(b.toUpperCase());
+// 	}
+// }
 
 
 public class SpecialSet {
@@ -18,7 +18,8 @@ public class SpecialSet {
 
 		StringComparator sc = new StringComparator();
 
-		TreeSet<String> set = new TreeSet<String>(sc);
+//		TreeSet<String> set = new TreeSet<String>(sc);
+		TreeSet<String> set = new TreeSet<String>( (a,b) -> a.toUpperCase().compareTo(b.toUpperCase()));
 
 		arguments
 			.stream()
