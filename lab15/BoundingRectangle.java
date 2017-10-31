@@ -5,6 +5,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.collections.ObservableList;
 
 public class BoundingRectangle extends Application{
 
@@ -19,6 +20,22 @@ public class BoundingRectangle extends Application{
 			Circle circle = new Circle( e.getX(), e.getY(), 10);
 			circle.setOnMouseClicked( c -> {
 				c.consume();
+				for (Circle c : p.getChildren() ) {
+					if (c.getCenterX() < r.getX()) {
+						r.setWidth( r.getWidth() + r.getX() - c.getCenterX() + 10);
+						r.setX( c.getCenterX() -10 );
+					}
+					else if (c.getCenterX() > r.getX() + r.getWidth()) {
+						r.setWidth( c.getCenterX() - r.getX() + 10);
+					}
+					if (c.getCenterY() < r.getY()) {
+						r.setHeight( r.getHeight() + r.getY() - c.getCenterY() + 10);
+						r.setY( c.getCenterY() -10 );
+					}
+					else if (c.getCenterY() > r.getY() + r.getHeight()) {
+						r.setHeight( c.getCenterY() - r.getY() + 10);
+					}
+				}
 				p.getChildren().remove(circle);
 			});
 			p.getChildren().add(circle);

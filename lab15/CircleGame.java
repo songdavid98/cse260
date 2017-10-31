@@ -23,8 +23,6 @@ public class CircleGame extends Application {
 		Random r = new Random();
 		Circle c = new Circle(r.nextInt(sw-20) + 10,  r.nextInt(sh-20) + 10, 10);
 		c.setFill( Color.color(Math.random(), Math.random(), Math.random() ) );
-
-
 		
 		c.setOnMouseClicked( e -> {
 				counter++;
