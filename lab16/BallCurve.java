@@ -10,6 +10,7 @@ import javafx.scene.shape.Circle;
 
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
+import javafx.animation.Interpolator;
 import javafx.util.Duration;
 
 public class BallCurve extends Application {
@@ -29,10 +30,11 @@ public class BallCurve extends Application {
 		circle.setStroke(Color.ORANGE);
 
 		PathTransition pt = new PathTransition();
-		pt.setDuration( Duration.millis(4000) );
+		pt.setDuration( Duration.millis(2000) );
 		pt.setPath(polyline);
 		pt.setNode(circle);
 		pt.setCycleCount( Timeline.INDEFINITE );
+		pt.setInterpolator( Interpolator.LINEAR );
 
 		Pane pane = new Pane();
 		pane.getChildren().addAll(polyline, circle);
