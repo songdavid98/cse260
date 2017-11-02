@@ -58,8 +58,6 @@ public class Traffic extends Application {
 		primaryStage.setTitle("Run");
 		primaryStage.setScene( scene );
 		primaryStage.show();
-
-		System.out.println("test");
 	}
 
 	public static void main(String[] args) {
