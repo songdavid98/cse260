@@ -49,12 +49,24 @@ public class Sum {
 
 
 		for (int i = 0; i < 1000; i++) {
-			executor.execute( () -> sumB.increment() );
+			executor.execute( () -> {
+				sumB.increment();
+			});
 		}
+
+		executor.shutdown();
+		while (!executor.isTerminated()) {
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+        }
 
 		endTime = System.currentTimeMillis();
 
-		executor.shutdown();
+		
 
 		System.out.println("Parallel time is " + (endTime - startTime));
 		System.out.println(sumB);		
